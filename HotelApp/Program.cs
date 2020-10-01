@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Threading;
@@ -23,6 +22,9 @@ namespace HotelApp
             {
                 case 1:
                     Registrar();
+                    Console.WriteLine("Cargando las habitaciones vacias...");
+                    Thread.Sleep(2000);
+                    CheckIn();
                     break;
                 case 2:
                     Console.WriteLine("Escribe tu DNI: ");
@@ -53,7 +55,6 @@ namespace HotelApp
                     break;
             }
         }
-
         static void Menu()
         {
             string[] opciones = { "1- Registrar cliente" , "2- Editar cliente", "3- Check-in", "4- Check-out", "5- Ver todas las habitaciones ocupadas con huésped nombre ", "6- Ver habitaciones vacias " , "7- Ver habitaciones ocupadas " , "8- Salir"};
@@ -296,7 +297,6 @@ namespace HotelApp
                 }
             }
         }
-
         static void ShowRoomsNotEmpties()
         {
             query = "SELECT * FROM Rooms WHERE Estado = 'Ocupada'";
