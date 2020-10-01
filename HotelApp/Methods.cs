@@ -27,7 +27,7 @@ namespace HotelApp
         {
             Console.WriteLine("no se puede reserva una habitación si previamente no sea registrado al cliente");
 
-            Thread.Sleep(2000);
+            Thread.Sleep(700);
 
             Console.WriteLine("Introduce tu Nombre: ");
             string nombre = Console.ReadLine();
